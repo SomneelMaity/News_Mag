@@ -3,16 +3,16 @@ import { useState } from "react";
 import { useEffect } from "react";
 import NewsItem from "./NewsItem.jsx";
 
-const NewsBoard = () => {
+const NewsBoard = ({ category }) => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=dd47bc660eaf44d4b1d6c34697d9ee1a`;
+    let url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=dd47bc660eaf44d4b1d6c34697d9ee1a`;
 
     fetch(url)
       .then((response) => response.json())
       .then((data) => setArticles(data.articles));
-  }, []);
+  }, [category]);
 
   return (
     <div>

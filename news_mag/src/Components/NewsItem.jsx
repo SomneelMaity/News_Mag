@@ -1,3 +1,4 @@
+import image from "../assets/images.jpeg";
 const NewsItem = ({ title, description, src, url }) => {
   return (
     <div
@@ -5,7 +6,7 @@ const NewsItem = ({ title, description, src, url }) => {
       style={{ maxWidth: "345px" }}
     >
       <img
-        src={src}
+        src={src ? src : image}
         style={{ height: "200px", width: "328px" }}
         className="card-img-top"
         alt="..."
@@ -17,7 +18,7 @@ const NewsItem = ({ title, description, src, url }) => {
             ? description.slice(0, 90)
             : "It is an information about something that just happened"}
         </p>
-        <a href={url} className="btn btn-primary">
+        <a href={url} className="btn btn-primary" target="_blank">
           Read More
         </a>
       </div>
